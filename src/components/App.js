@@ -7,6 +7,7 @@ function App() {
   const [data, setData] = useState([]);
   const [newAdalaber, setNewAdalaber] = useState(initialAdalaber);
   const [search, setSearch] = useState('');
+  const [searchCounselor, setSearchCounselor] = useState('');
 
   /* --- Use Effect --- */
   useEffect(() => {
@@ -32,11 +33,21 @@ function App() {
   const handleChangeSearch = (event) => {
     setSearch(event.currentTarget.value);
   };
+  const handleChangeSelect = (event) => {
+    if (event.currentTarget.value !=="Anyone") {
+      setSearchCounselor(event.currentTarget.value);
+    } else {
+      setSearchCounselor('')
+    }
+  };
 
   /* --- Add HTML for Adalabers List --- */
   const htmlAdalabersList = data
     .filter((adalaber) =>
       adalaber.name.toLowerCase().includes(search.toLowerCase())
+    )
+    .filter((adalaber) =>
+      adalaber.counselor.toLowerCase().includes(searchCounselor.toLowerCase())
     )
     .map((adalaber, index) => (
       <tr key={index}>
@@ -93,7 +104,17 @@ function App() {
             onChange={handleChangeSearch}
             value={search}
           />
-        </label>  
+        </label>
+        <select
+          name="search-counselor"
+          id="search-counselor"
+          onChange={handleChangeSelect}
+        >
+          <option value="Anyone">Cualquiera</option>
+          <option value="Yanelis">Yanelis</option>
+          <option value="Dayana">Dayana</option>
+          <option value="Iván">Iván</option>
+        </select>
       </form>
       <table>
         <thead>
