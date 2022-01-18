@@ -1,12 +1,19 @@
-import { useState } from 'react';
-import adalabers from '../data/adalabers.json';
+import { useEffect, useState } from 'react';
 import initialAdalaber from '../data/initialAdalaber.json';
+import callToApi from '../services/api';
 import '../styles/App.scss';
 
 function App() {
-  const [data, setData] = useState(adalabers.results);
+  const [data, setData] = useState([]);
   const [newAdalaber, setNewAdalaber] = useState(initialAdalaber);
   const [search, setSearch] = useState('');
+
+  /* --- Use Effect --- */
+  useEffect(() => {
+    callToApi().then((response) => {
+      setData(response);
+    });
+  }, []);
 
   /* --- Handlers --- */
   const handleChangeNewAdalaber = (event) => {
@@ -80,12 +87,13 @@ function App() {
             autoComplete="off"
             spellCheck="false"
             type="search"
-            name="search"
+            name="search-adalaber"
+            id="search-adalaber"
             placeholder="Ej: Mari Carmen"
             onChange={handleChangeSearch}
             value={search}
           />
-        </label>
+        </label>  
       </form>
       <table>
         <thead>
