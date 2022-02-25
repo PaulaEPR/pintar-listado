@@ -1,6 +1,11 @@
 # Pintar listado
 [![Autor](https://img.shields.io/badge/autor-Paula%20Perera-red)](https://github.com/PaulaEPR)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
+## ¿Dónde verlo?
+
+[Pintar listado](https://paulaepr.github.io/pintar-listado/)
+
+![Mockup Desktop Version](./src/images/readme/preview.jpg)
 
 ## React: Ejercicio de evaluación intermedia
 ### Enunciado
