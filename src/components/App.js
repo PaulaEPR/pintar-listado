@@ -34,10 +34,10 @@ function App() {
     setSearch(event.currentTarget.value);
   };
   const handleChangeSelect = (event) => {
-    if (event.currentTarget.value !=="Anyone") {
+    if (event.currentTarget.value !== 'Anyone') {
       setSearchCounselor(event.currentTarget.value);
     } else {
-      setSearchCounselor('')
+      setSearchCounselor('');
     }
   };
 
@@ -50,7 +50,7 @@ function App() {
       adalaber.counselor.toLowerCase().includes(searchCounselor.toLowerCase())
     )
     .map((adalaber, index) => (
-      <tr key={index}>
+      <tr className="table__row" key={index}>
         <td>{adalaber.name}</td>
         <td>{adalaber.counselor}</td>
         <td>{adalaber.speciality}</td>
@@ -75,8 +75,8 @@ function App() {
   ];
 
   const htmlInput = headersList.map((adalaber, index) => (
-    <div key={index}>
-      <label htmlFor={adalaber.id}>{adalaber.l}</label>
+    <div className="input" key={index}>
+      <label htmlFor={adalaber.id} className="label">{adalaber.l}:</label>
       <input
         type="text"
         name={adalaber.id}
@@ -90,51 +90,72 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Adalabers</h1>
-      <form>
-        <label>
-          Nombre:
-          <input
-            autoComplete="off"
-            spellCheck="false"
-            type="search"
-            name="search-adalaber"
-            id="search-adalaber"
-            placeholder="Ej: Mari Carmen"
-            onChange={handleChangeSearch}
-            value={search}
-          />
-        </label>
-        <select
-          name="search-counselor"
-          id="search-counselor"
-          onChange={handleChangeSelect}
-        >
-          <option value="Anyone">Cualquiera</option>
-          <option value="Yanelis">Yanelis</option>
-          <option value="Dayana">Dayana</option>
-          <option value="Iván">Iván</option>
-        </select>
-      </form>
-      <table>
-        <thead>
-          <tr>
-            <th>Nombre</th>
-            <th>Tutora</th>
-            <th>Especialidad</th>
-          </tr>
-        </thead>
-        <tbody>{htmlAdalabersList}</tbody>
-      </table>
-      <h2>Añadir a una Adalaber</h2>
-      <form action="#">
-        {htmlInput}
-        <input
-          type="submit"
-          value="Añadir una nueva adalaber"
-          onClick={handleSubmitNewAdalaber}
-        />
-      </form>
+      <header className="header">
+        <h1>Adalabers</h1>
+      </header>
+      <main className="main">
+        <aside className="aside">
+          <article className="aside__search">
+            <form>
+              <h2 className="subtitle">Filtrar Adalabers</h2>
+              <div className="input">
+                <label htmlFor="search-adalaber" className="label">
+                  Nombre:
+                </label>
+                <input
+                  autoComplete="off"
+                  spellCheck="false"
+                  type="search"
+                  name="search-adalaber"
+                  id="search-adalaber"
+                  placeholder="Ej: Mari Carmen"
+                  onChange={handleChangeSearch}
+                  value={search}
+                />
+              </div>
+              <div className="input">
+                <label htmlFor="search-counselor" className="label">
+                  Tutora:
+                </label>
+                <select
+                  name="search-counselor"
+                  id="search-counselor"
+                  onChange={handleChangeSelect}
+                >
+                  <option value="Anyone">Cualquiera</option>
+                  <option value="Yanelis">Yanelis</option>
+                  <option value="Dayana">Dayana</option>
+                  <option value="Iván">Iván</option>
+                </select>
+              </div>
+            </form>
+          </article>
+          <article className="aside__new-adalaber">
+            <h2 className="subtitle">Añadir a una Adalaber</h2>
+            <form action="#">
+              {htmlInput}
+              <input
+                type="submit"
+                value="Añadir una nueva adalaber"
+                className="input button"
+                onClick={handleSubmitNewAdalaber}
+              />
+            </form>
+          </article>
+        </aside>
+        <section className="results">
+          <table className="table">
+            <thead className="table__head">
+              <tr>
+                <th>Nombre</th>
+                <th>Tutora</th>
+                <th>Especialidad</th>
+              </tr>
+            </thead>
+            <tbody>{htmlAdalabersList}</tbody>
+          </table>
+        </section>
+      </main>
     </div>
   );
 }
