@@ -1,12 +1,13 @@
-# Módulo 3: Ejercicio de evaluación intermedia
+# Pintar listado
 [![Autor](https://img.shields.io/badge/autor-Paula%20Perera-red)](https://github.com/PaulaEPR)
 [![MIT License](https://img.shields.io/apm/l/atomic-design-ui.svg?)](https://github.com/tterb/atomic-design-ui/blob/master/LICENSEs)
 
+## React: Ejercicio de evaluación intermedia
 ### Enunciado
 
 1. Pintar una cabecera con un título que ponga Adalabers.
 2. Pintar el listado de Adalabers inicial. Para ello os facilitamos los datos en la siguiente API:
-[https://beta.adalab.es/pw-recursos/apis/adalabers-v1/promo-patata.json](https://beta.adalab.es/pw-recursos/apis/adalabers-v1/promo-patata.json)
+[https://beta.adalab.es/pw-recursos/apis/adalabers-v1/promo-patata.json](https://paulaepr.github.io/recursos-adalab/apis/adalabers.json)
 3. A continuación, queremos añadir los datos de una compañera nueva. Para ello seguiremos los siguientes pasos:
     1. Crear un formulario con los campos:
         - Nombre de la compañera
